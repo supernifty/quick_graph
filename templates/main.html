@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quick Grapher - Paste some data and see a graph</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css', v='180515') }}">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Paste your data and get a graph</h1>
+          <p>Put each number on a new line. 1D data is shown as a histogram. 2D data is shown as a scatter plot.</p>
+          <div>
+            <textarea class="form-control" id="data" rows="8"></textarea>
+          </div>
+          <div>
+            <p>
+              <a href="#" id="example_1">Example 1</a>&nbsp;-&nbsp;<a href="#" id="example_2">Example 2</a>
+            </p>
+          </div>
+          <div>
+            <button type="button" id="graph_btn" class="btn btn-primary">Generate Graph</button>
+            <span id="status"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div id="graph"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js', v='180515') }}"></script>
+    <script>
+      $(document).ready(function () {
+        load();
+      });
+    </script>
+  </body>
+</html>
