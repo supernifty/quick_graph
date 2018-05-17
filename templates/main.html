@@ -24,9 +24,13 @@
       <div class="row">
         <div class="col-md-12">
           <h1>Paste your data and get a graph</h1>
-          <p>Put each number on a new line. 1D data is shown as a histogram. 2D data is shown as a scatter plot.</p>
+          <p>Put each row of data on a new line. 1 column of data is shown as a histogram. 2 columns are shown as a scatter plot. 3 columns are shown as a scatter plot with labels.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
           <div>
-            <textarea class="form-control" id="data" rows="8"></textarea>
+            <textarea class="form-control" id="data" rows="8">{{ data }}</textarea>
           </div>
           <div>
             <p>
@@ -37,6 +41,15 @@
             <button type="button" id="graph_btn" class="btn btn-primary">Generate Graph</button>
             <span id="status"></span>
           </div>
+        </div>
+        <div class="col-md-4">
+          <form method=post enctype=multipart/form-data>
+            <div class="form-group">
+              <label for="file">File input</label>
+              <input type="file" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload your dataset</button>
+          </form>
         </div>
       </div>
 

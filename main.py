@@ -23,7 +23,7 @@ def main():
             flask.abort(400, 'No selected file')
             return flask.redirect(flask.request.url)
         if file:
-            data = file.read()
+            data = ''.join([line.decode("utf-8") for line in file])
             return flask.render_template('main.html', data=data)
     return flask.render_template('main.html')
 
