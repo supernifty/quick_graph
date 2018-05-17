@@ -2,7 +2,10 @@
 
 import flask
 
+import proxy
+
 app = flask.Flask(__name__, template_folder='templates')
+app.wsgi_app = proxy.ReverseProxied(app.wsgi_app)
 app.config.from_pyfile('config.py')
 app.secret_key = 'ducks in space'
 
