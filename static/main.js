@@ -20,12 +20,16 @@ var
   },
 
   scatter = function(rows, sep) {
-      var x = [], y = [];
+      var x = [], y = [], z = [], labels = (rows[0].split(sep).length > 2);
       
       for (row in rows) {
         values = rows[row].split(sep);
         x.push(values[0]);
         y.push(values[1]);
+        
+        if (labels) {
+          z.push(values[2]);
+        }
       }
       var trace = {
           x: x,
@@ -33,8 +37,11 @@ var
           type: 'scatter',
           mode: 'markers'
       };
+      if (labels) {
+        trace['text'] = z;
+      }
       var data = [trace];
-      Plotly.newPlot('graph', data);
+      Plotly.newPlot('graph', data, {hovermode: 'closest'});
       $('#status').text("Plotted " + rows.length + " values as a scatter plot");
    },
 
