@@ -16,6 +16,12 @@ var
       return false;
     });
 
+    $('#example_3').on('click', function (e) {
+      $('#data').val('0.15,0.2,snail\n0.2,0.2,finch\n0.2,0.3,giraffe\n0.3,0.25,cat\n0.3,0.4,tiger\n0.3,0.4,mongoose\n0.4,0.35,human\n0.4,0.6,kangaroo\n0.5,0.5,horse\n0.6,0.65,dolphin\n0.9,0.8,cheetah');
+      draw();
+      return false;
+    });
+
  
   },
 
